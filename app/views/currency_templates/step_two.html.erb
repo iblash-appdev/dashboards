@@ -1,4 +1,4 @@
-<h1>Convert <%= @from_symbol %></h1>
+<h1>Convert <%= @from_symbol %> to <%= @from_symbol %></h1>
 
 
 <p>
@@ -7,9 +7,9 @@
 
 <ul>
   <% @array_of_symbols.each do |a_symbol| %>
-  <li>
-  <a href="/forex/<%= @from_symbol %>/<%= a_symbol %>">
-    Convert 1 <%= @from_symbol %> to I<%= a_symbol %>...
-  </li>
+   <li>
+    <a href="/forex/<%= @from_symbol %>/<%= a_symbol %>">
+       Convert 1 <%= @from_symbol %> to <%= a_symbol %>...
+   </li>
   <% end %>
 </ul>
