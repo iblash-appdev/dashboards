@@ -41,7 +41,8 @@ class CurrenciesController < ApplicationController
 
     #@starting_currency = params.fetch("from_currency")
     #@ending_currency = params.fetch("to_currency")
-
+    
+    @from_symbol = params.fetch("from_currency")
     render({ :template => "currency_templates/step_three.html.erb"})
 
   end
