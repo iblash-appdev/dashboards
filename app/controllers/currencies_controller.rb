@@ -1,4 +1,7 @@
 class CurrenciesController < ApplicationController
+  def homepage
+    render({ :template => "currency_templates/home.html.erb"})
+  end
   def first_currency
 
     @raw_data =  open("https://api.exchangerate.host/symbols").read
