@@ -31,11 +31,11 @@ class CurrenciesController < ApplicationController
 
   def exchange_currency
 
-    @raw_data =  open("https://api.exchangerate.host/convert?from=USD&to=EUR").read
-    @parsed_data = JSON.parse(@raw_data)
-    @symbols_hash = @parsed_data.fetch("symbols")
+    #@raw_data =  open("https://api.exchangerate.host/convert?from=USD&to=EUR").read
+    #@parsed_data = JSON.parse(@raw_data)
+    #@symbols_hash = @parsed_data.fetch("symbols")
 
-    @array_of_symbols = @symbols_hash.keys
+    #@array_of_symbols = @symbols_hash.keys
 
     #@raw_data = open("https://api.exchangerate.host/convert?from=USD&to=EUR").read
     #@parsed_data = JSON.parse(@raw_data)
@@ -45,8 +45,17 @@ class CurrenciesController < ApplicationController
     #@starting_currency = params.fetch("from_currency")
     #@ending_currency = params.fetch("to_currency")
     
+    #@from_symbol = params.fetch("from_currency")
+    #render({ :template => "currency_templates/step_three.html.erb"})
+
+    #######
     @from_symbol = params.fetch("from_currency")
-    render({ :template => "currency_templates/step_three.html.erb"})
+    @to_symbol = params.fetch("to_currency")
+    @rate_data = open("https://api.exchangerate.host/convert?from=#{@from_currency}&to=#{@to_symbol}").read
+  @parsed_data = JSON.parse(@rate_data)
+  @result=@parsed_data.fetch("info").fetch("rate")
+
+  render({ :template => "currency_templates/step_three.html.erb"})
 
   end
 

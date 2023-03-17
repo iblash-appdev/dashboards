@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   get("/forex/:from_currency/:exchange_rate", { :controller => "currencies", :action => "exchange_currency"})
 
+  #get ("/", { :contoller => "currencies", :action => "homepage"})
+
  
 end
