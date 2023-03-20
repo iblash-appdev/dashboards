@@ -33,6 +33,7 @@ class CurrenciesController < ApplicationController
 
     @from_symbol = params.fetch("from_currency")
     @to_symbol = params.fetch("to_currency")
+    
 
     @rate_data = open("https://api.exchangerate.host/convert?from=#{@from_currency}&to=#{@to_symbol}").read
 
